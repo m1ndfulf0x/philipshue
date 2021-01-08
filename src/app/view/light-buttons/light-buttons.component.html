@@ -1,0 +1,24 @@
+<div class="example-label">On / Off</div>
+<div class="example-button-row">
+  <div [ngClass]="{'lighten-up':!lightStates[0]?.on, 'light-off':lightStates[0]?.on}">
+    <button mat-raised-button (click)="turnLight('play2')">Play 2</button>
+  </div>
+  <div [ngClass]="{'lighten-up':!lightStates[1]?.on, 'light-off':lightStates[1]?.on}">
+    <button mat-raised-button (click)="turnLight('play3')">Play 3</button>
+  </div>
+</div>
+<div class="example-label">Focus</div>
+<div class="example-button-row">
+  <button mat-raised-button (click)="setLightForFocus('play2')">Play 2</button>
+  <button mat-raised-button (click)="setLightForFocus('play3')">Play 3</button>
+</div>
+<div class="example-label">Energy</div>
+<div class="example-button-row">
+  <button mat-raised-button (click)="setLightForEnergy('play2')">Play 2</button>
+  <button mat-raised-button (click)="setLightForEnergy('play3')">Play 3</button>
+</div>
+<div class="example-label">Reading</div>
+<div class="example-button-row">
+  <button mat-raised-button (click)="setLightForReading('play2')">Play 2</button>
+  <button mat-raised-button (click)="setLightForReading('play3')">Play 3</button>
+</div>

@@ -1,0 +1,34 @@
+.example-label {
+  display: table-cell;
+  font-size: 24px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: flex;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lighten-up {
+  button.mat-button-base, .mat-raised-button, {
+    background: #ffff1a;
+    color: black;
+  }
+}
+
+.light-off {
+  button.mat-button-base, .mat-raised-button, {
+    background: #606060;
+    color: white;
+  }
+}
