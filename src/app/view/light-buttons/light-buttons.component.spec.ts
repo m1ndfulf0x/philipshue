@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LightButtonsComponent } from './light-buttons.component';
@@ -8,7 +9,8 @@ describe('LightButtonsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LightButtonsComponent ]
+      declarations: [ LightButtonsComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
