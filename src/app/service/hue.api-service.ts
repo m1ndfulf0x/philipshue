@@ -10,8 +10,8 @@ import { ApiConfig } from './api-config';
 export class HueApiService
 {
 
-  private readonly bridgeIP:string = ApiConfig.bridgeIp;
-  private readonly user:string = ApiConfig.user;
+  private readonly bridgeIP:string = ApiConfig?.bridgeIp;
+  private readonly user:string = ApiConfig?.user;
   private readonly url:string = 'https://' + this.bridgeIP + '/api/' + this.user;
 
   constructor(private http:HttpClient)
