@@ -14,6 +14,7 @@ import { LightHelper } from '../../helper/light.helper';
 export class LightButtonsComponent implements OnInit
 {
   public lightStates:Array<LightStateInterface> = [];
+  public isChecked:boolean = false;
 
   constructor(private service:HueApiService)
   {
@@ -68,5 +69,10 @@ export class LightButtonsComponent implements OnInit
   public setLightForReading(id:string):void
   {
     this.service.setLightState(LightHelper.getLightId(id), LightHelper.getReadingLight()).subscribe();
+  }
+
+  public changeToggleState():void
+  {
+    this.isChecked = !this.isChecked;
   }
 }
