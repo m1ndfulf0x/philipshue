@@ -6,7 +6,7 @@
   <div [ngClass]="{'lighten-up':!lightStates[1]?.on, 'light-off':lightStates[1]?.on}">
     <button mat-raised-button (click)="turnLight('play3')">Play 3</button>
   </div>
-  <mat-slide-toggle [(checked)]="isChecked" (change)="changeToggleState()">
+  <mat-slide-toggle [(ngModel)]="isChecked">
     Slide Toggle Checked: {{isChecked}}
   </mat-slide-toggle>
 </div>

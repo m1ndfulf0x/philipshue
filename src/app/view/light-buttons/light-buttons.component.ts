@@ -70,9 +70,4 @@ export class LightButtonsComponent implements OnInit
   {
     this.service.setLightState(LightHelper.getLightId(id), LightHelper.getReadingLight()).subscribe();
   }
-
-  public changeToggleState():void
-  {
-    this.isChecked = !this.isChecked;
-  }
 }
