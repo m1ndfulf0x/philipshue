@@ -38,22 +38,23 @@ export class LightButtonsComponent implements OnInit
     });
   }
 
-  public turnLight(id:string):void
+  public turnLight(light:LightStateInterface):void
   {
-    const lightId:string = LightHelper.getLightId(id);
-    const light:LightStateInterface = this.lightStates.find((state:LightStateInterface) => state.lightId === lightId);
-    light.on = !light.on;
-    light.on ? this.turnOffLight(id) : this.turnOnLight(id);
+    // light.on = !light.on;
+    if(light)
+    {
+      light.on ? this.turnOffLight(light.lightId) : this.turnOnLight(light.lightId);
+    }
   }
 
   private turnOnLight(id:string):void
   {
-    this.service.turnOnLight(LightHelper.getLightId(id)).subscribe();
+    this.service.turnOnLight(id).subscribe();
   }
 
   private turnOffLight(id:string):void
   {
-    this.service.turnOffLight(LightHelper.getLightId(id)).subscribe();
+    this.service.turnOffLight(id).subscribe();
   }
 
   public setLightForFocus(id:string):void

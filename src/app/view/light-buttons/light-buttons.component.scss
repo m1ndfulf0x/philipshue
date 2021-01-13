@@ -1,3 +1,7 @@
+mat-slide-toggle {
+  margin: 4px 4px 4px 4px;
+}
+
 .example-label {
   display: table-cell;
   font-size: 24px;
@@ -17,18 +21,4 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.lighten-up {
-  button.mat-button-base, .mat-raised-button, {
-    background: #ffff1a;
-    color: black;
-  }
-}
-
-.light-off {
-  button.mat-button-base, .mat-raised-button, {
-    background: #606060;
-    color: white;
-  }
 }

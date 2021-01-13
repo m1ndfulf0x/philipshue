@@ -1,13 +1,10 @@
 <div class="example-label">On / Off</div>
 <div class="example-button-row">
-  <div [ngClass]="{'lighten-up':!lightStates[0]?.on, 'light-off':lightStates[0]?.on}">
-    <button mat-raised-button (click)="turnLight('play2')">Play 2</button>
-  </div>
-  <div [ngClass]="{'lighten-up':!lightStates[1]?.on, 'light-off':lightStates[1]?.on}">
-    <button mat-raised-button (click)="turnLight('play3')">Play 3</button>
-  </div>
-  <mat-slide-toggle [(ngModel)]="lightStates[0].on" (change)="turnLight('play2')">
-    Slide Toggle Checked: {{lightStates[0].on}}
+  <mat-slide-toggle [(ngModel)]="lightStates[0].on" (change)="turnLight(lightStates[0])">
+    Play 2
+  </mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="lightStates[1].on" (change)="turnLight(lightStates[1])">
+    Play 3
   </mat-slide-toggle>
 </div>
 <div class="example-label">Focus</div>
