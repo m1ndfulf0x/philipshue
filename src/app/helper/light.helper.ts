@@ -2,7 +2,7 @@ import { LightStateInterface } from '../data/light-state.interface';
 
 export class LightHelper
 {
-  public static getLightId(id:string):string
+  public static getLightIdByName(id:string):string
   {
     switch(id)
     {

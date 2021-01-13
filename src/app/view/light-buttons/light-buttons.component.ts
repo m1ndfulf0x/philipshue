@@ -13,7 +13,7 @@ import { LightHelper } from '../../helper/light.helper';
 })
 export class LightButtonsComponent implements OnInit
 {
-  public lightStates:Array<LightStateInterface> = [];
+  public lightStates:Array<LightStateInterface> = [{on:false},{on:false}];
   public isChecked:boolean = false;
 
   constructor(private service:HueApiService)
@@ -24,17 +24,17 @@ export class LightButtonsComponent implements OnInit
   {
     this.service.getLightState('9').subscribe((state:any) =>
     {
-      this.lightStates.push({
+      this.lightStates[0] = {
         on:      state.state.on,
         lightId: '9'
-      });
+      };
     });
     this.service.getLightState('10').subscribe((state:any) =>
     {
-      this.lightStates.push({
+      this.lightStates[1] = {
         on:      state.state.on,
         lightId: '10'
-      });
+      };
     });
   }
 
@@ -44,6 +44,7 @@ export class LightButtonsComponent implements OnInit
     if(light)
     {
       light.on ? this.turnOffLight(light.lightId) : this.turnOnLight(light.lightId);
+      light.on = !light.on;
     }
   }
 
@@ -59,16 +60,16 @@ export class LightButtonsComponent implements OnInit
 
   public setLightForFocus(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getFocusLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getFocusLight()).subscribe();
   }
 
   public setLightForEnergy(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getEnergyLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getEnergyLight()).subscribe();
   }
 
   public setLightForReading(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getReadingLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getReadingLight()).subscribe();
   }
 }
