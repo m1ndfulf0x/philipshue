@@ -7,13 +7,13 @@ import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
 
 @Component({
-  selector:    'light-buttons',
+  selector:    'app-light-buttons',
   templateUrl: './light-buttons.component.html',
   styleUrls:   ['./light-buttons.component.scss']
 })
 export class LightButtonsComponent implements OnInit
 {
-  public lightStates:Array<LightStateInterface> = [];
+  public lightStates:Array<LightStateInterface> = [{on:false},{on:false}];
 
   constructor(private service:HueApiService)
   {
@@ -23,50 +23,54 @@ export class LightButtonsComponent implements OnInit
   {
     this.service.getLightState('9').subscribe((state:any) =>
     {
-      this.lightStates.push({
+      this.lightStates[0] = {
         on:      state.state.on,
         lightId: '9'
-      });
+      };
     });
     this.service.getLightState('10').subscribe((state:any) =>
     {
-      this.lightStates.push({
+      this.lightStates[1] = {
         on:      state.state.on,
         lightId: '10'
-      });
+      };
     });
   }
 
-  public turnLight(id:string):void
+  public turnLight(light:LightStateInterface):void
   {
-    const lightId:string = LightHelper.getLightId(id);
-    const light:LightStateInterface = this.lightStates.find((state:LightStateInterface) => state.lightId === lightId);
-    light.on = !light.on;
-    light.on ? this.turnOffLight(id) : this.turnOnLight(id);
+    if(light)
+    {
+      light.on ? this.turnOnLight(light.lightId) : this.turnOffLight(light.lightId);
+    }
   }
 
   private turnOnLight(id:string):void
   {
-    this.service.turnOnLight(LightHelper.getLightId(id)).subscribe();
+    this.service.turnOnLight(id).subscribe((value) =>
+    {
+      console.log(value);
+    },
+    (error) =>{console.log(error)});
   }
 
   private turnOffLight(id:string):void
   {
-    this.service.turnOffLight(LightHelper.getLightId(id)).subscribe();
+    this.service.turnOffLight(id).subscribe();
   }
 
   public setLightForFocus(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getFocusLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getFocusLight()).subscribe();
   }
 
   public setLightForEnergy(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getEnergyLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getEnergyLight()).subscribe();
   }
 
   public setLightForReading(id:string):void
   {
-    this.service.setLightState(LightHelper.getLightId(id), LightHelper.getReadingLight()).subscribe();
+    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getReadingLight()).subscribe();
   }
 }
