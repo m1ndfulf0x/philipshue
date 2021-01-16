@@ -40,17 +40,19 @@ export class LightButtonsComponent implements OnInit
 
   public turnLight(light:LightStateInterface):void
   {
-    // light.on = !light.on;
     if(light)
     {
-      light.on ? this.turnOffLight(light.lightId) : this.turnOnLight(light.lightId);
-      light.on = !light.on;
+      light.on ? this.turnOnLight(light.lightId) : this.turnOffLight(light.lightId);
     }
   }
 
   private turnOnLight(id:string):void
   {
-    this.service.turnOnLight(id).subscribe();
+    this.service.turnOnLight(id).subscribe((value) =>
+    {
+      console.log(value);
+    },
+    (error) =>{console.log(error)});
   }
 
   private turnOffLight(id:string):void
