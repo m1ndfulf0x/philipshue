@@ -7,14 +7,13 @@ import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
 
 @Component({
-  selector:    'light-buttons',
+  selector:    'app-light-buttons',
   templateUrl: './light-buttons.component.html',
   styleUrls:   ['./light-buttons.component.scss']
 })
 export class LightButtonsComponent implements OnInit
 {
   public lightStates:Array<LightStateInterface> = [{on:false},{on:false}];
-  public isChecked:boolean = false;
 
   constructor(private service:HueApiService)
   {
