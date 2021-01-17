@@ -78,7 +78,7 @@ export class LightButtonsComponent implements OnInit
       return state.lightId === lightId;
     });
 
-    this.service.setBrightness(lightId, lightState.bri);
+    this.service.setBrightness(lightId, lightState.bri).subscribe();
   }
 
   private turnOnLight(id:string):void

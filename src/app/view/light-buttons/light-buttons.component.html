@@ -9,13 +9,21 @@
     [step]="sliderConfig.step"
     [thumbLabel]="sliderConfig.label"
     [(ngModel)]="lightStates[0].bri"
-    (ngModelChange)="setBrightness('play2')">
+    (change)="setBrightness('play2')">
   </mat-slider>
 </div>
 <div class="example-button-row">
   <mat-slide-toggle [(ngModel)]="lightStates[1].on" (change)="turnLight(lightStates[1])">
     Play 3
   </mat-slide-toggle>
+  <mat-slider
+    [max]="sliderConfig.max"
+    [min]="sliderConfig.min"
+    [step]="sliderConfig.step"
+    [thumbLabel]="sliderConfig.label"
+    [(ngModel)]="lightStates[1].bri"
+    (change)="setBrightness('play3')">
+  </mat-slider>
 </div>
 <div class="example-label">Focus</div>
 <div class="example-button-row">
