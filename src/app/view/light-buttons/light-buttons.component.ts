@@ -1,3 +1,4 @@
+import { brightnessBounderies } from './../../data/brightness';
 import {
   Component,
   OnInit
@@ -13,7 +14,13 @@ import { LightHelper } from '../../helper/light.helper';
 })
 export class LightButtonsComponent implements OnInit
 {
-  public lightStates:Array<LightStateInterface> = [{on:false},{on:false}];
+  public lightStates:Array<LightStateInterface> = [{on:false, bri: 0},{on:false, bri: 0}];
+  public readonly sliderConfig = {
+    max: brightnessBounderies.maximum,
+    min: brightnessBounderies.minimum,
+    step: 1,
+    label: 'Brightness'
+  };
 
   constructor(private service:HueApiService)
   {
@@ -25,6 +32,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.lightStates[0] = {
         on:      state.state.on,
+        bri:     state.state.bri,
         lightId: '9'
       };
     });
@@ -32,6 +40,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.lightStates[1] = {
         on:      state.state.on,
+        bri:     state.state.bri,
         lightId: '10'
       };
     });
@@ -43,20 +52,6 @@ export class LightButtonsComponent implements OnInit
     {
       light.on ? this.turnOnLight(light.lightId) : this.turnOffLight(light.lightId);
     }
-  }
-
-  private turnOnLight(id:string):void
-  {
-    this.service.turnOnLight(id).subscribe((value) =>
-    {
-      console.log(value);
-    },
-    (error) =>{console.log(error)});
-  }
-
-  private turnOffLight(id:string):void
-  {
-    this.service.turnOffLight(id).subscribe();
   }
 
   public setLightForFocus(id:string):void
@@ -72,5 +67,31 @@ export class LightButtonsComponent implements OnInit
   public setLightForReading(id:string):void
   {
     this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getReadingLight()).subscribe();
+  }
+
+  /**
+   * setBrightness
+   */
+  public setBrightness(id:string):void {
+    const lightId:string = LightHelper.getLightIdByName(id);
+    const lightState:LightStateInterface = this.lightStates.find((state) => {
+      return state.lightId === lightId;
+    });
+
+    this.service.setBrightness(lightId, lightState.bri);
+  }
+
+  private turnOnLight(id:string):void
+  {
+    this.service.turnOnLight(id).subscribe((value) =>
+    {
+      console.log(value);
+    },
+    (error) =>{console.log(error)});
+  }
+
+  private turnOffLight(id:string):void
+  {
+    this.service.turnOffLight(id).subscribe();
   }
 }

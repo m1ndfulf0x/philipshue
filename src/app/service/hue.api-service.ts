@@ -37,4 +37,16 @@ export class HueApiService
   {
     return this.http.get<any>(this.url + '/lights/' + lightId);
   }
+
+  /**
+   * setBrightness
+   *
+   */
+  public setBrightness(lightId:string, brightness:number):Observable<any> {
+    const lightState:LightStateInterface = {
+      on:true,
+      bri:brightness
+    }
+    return this.setLightState(lightId, lightState);
+  }
 }

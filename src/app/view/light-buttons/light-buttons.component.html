@@ -3,6 +3,16 @@
   <mat-slide-toggle [(ngModel)]="lightStates[0].on" (change)="turnLight(lightStates[0])">
     Play 2
   </mat-slide-toggle>
+  <mat-slider
+    [max]="sliderConfig.max"
+    [min]="sliderConfig.min"
+    [step]="sliderConfig.step"
+    [thumbLabel]="sliderConfig.label"
+    [(ngModel)]="lightStates[0].bri"
+    (ngModelChange)="setBrightness('play2')">
+  </mat-slider>
+</div>
+<div class="example-button-row">
   <mat-slide-toggle [(ngModel)]="lightStates[1].on" (change)="turnLight(lightStates[1])">
     Play 3
   </mat-slide-toggle>
