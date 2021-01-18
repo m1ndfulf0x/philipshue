@@ -57,9 +57,17 @@ export class LightButtonsComponent implements OnInit
 
   public turnLight(light:LightStateInterface):void
   {
-    if(light)
+    if(light?.on)
     {
-      light.on ? this.turnOnLight(light.lightId) : this.turnOffLight(light.lightId);
+      this.turnOnLight(light.lightId)
+      this.service.getLightState(light.lightId).subscribe((state:any) => {
+        light.bri = state.state.bri;
+      });
+    }
+    else
+    {
+      this.turnOffLight(light.lightId);
+      light.bri = 0;
     }
   }
 
@@ -82,7 +90,9 @@ export class LightButtonsComponent implements OnInit
    * setBrightness
    */
   public setBrightness(light:LightStateInterface):void {
-    this.service.setBrightness(light.lightId, light.bri).subscribe();
+    this.service.setBrightness(light.lightId, light.bri).subscribe(() => {
+      light.on = true;
+    });
   }
 
   private turnOnLight(id:string):void
