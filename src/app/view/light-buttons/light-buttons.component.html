@@ -1,24 +1,42 @@
 <div class="example-label">On / Off</div>
 <div class="example-button-row">
-  <mat-slide-toggle [(ngModel)]="lightStates[0].on" (change)="turnLight(lightStates[0])">
+  <mat-slide-toggle [(ngModel)]="play2Light.on" (change)="turnLight(play2Light)">
     Play 2
   </mat-slide-toggle>
-  <mat-slide-toggle [(ngModel)]="lightStates[1].on" (change)="turnLight(lightStates[1])">
+  <mat-slider
+    [max]="sliderConfig.max"
+    [min]="sliderConfig.min"
+    [step]="sliderConfig.step"
+    [thumbLabel]="sliderConfig.label"
+    [(ngModel)]="play2Light.bri"
+    (change)="setBrightness(play2Light)">
+  </mat-slider>
+</div>
+<div class="example-button-row">
+  <mat-slide-toggle [(ngModel)]="play3Light.on" (change)="turnLight(play3Light)">
     Play 3
   </mat-slide-toggle>
+  <mat-slider
+    [max]="sliderConfig.max"
+    [min]="sliderConfig.min"
+    [step]="sliderConfig.step"
+    [thumbLabel]="sliderConfig.label"
+    [(ngModel)]="play3Light.bri"
+    (change)="setBrightness(play3Light)">
+  </mat-slider>
 </div>
 <div class="example-label">Focus</div>
 <div class="example-button-row">
-  <button mat-raised-button (click)="setLightForFocus('play2')">Play 2</button>
-  <button mat-raised-button (click)="setLightForFocus('play3')">Play 3</button>
+  <button mat-raised-button (click)="setLightForFocus(play2Light)">Play 2</button>
+  <button mat-raised-button (click)="setLightForFocus(play3Light)">Play 3</button>
 </div>
 <div class="example-label">Energy</div>
 <div class="example-button-row">
-  <button mat-raised-button (click)="setLightForEnergy('play2')">Play 2</button>
-  <button mat-raised-button (click)="setLightForEnergy('play3')">Play 3</button>
+  <button mat-raised-button (click)="setLightForEnergy(play2Light)">Play 2</button>
+  <button mat-raised-button (click)="setLightForEnergy(play3Light)">Play 3</button>
 </div>
 <div class="example-label">Reading</div>
 <div class="example-button-row">
-  <button mat-raised-button (click)="setLightForReading('play2')">Play 2</button>
-  <button mat-raised-button (click)="setLightForReading('play3')">Play 3</button>
+  <button mat-raised-button (click)="setLightForReading(play2Light)">Play 2</button>
+  <button mat-raised-button (click)="setLightForReading(play3Light)">Play 3</button>
 </div>

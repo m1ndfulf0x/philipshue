@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HueApiService } from './service/hue.api-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider'
 import { ButtonContainerComponent } from './view/button-container/button-container.component';
 import { LightButtonsComponent } from './view/light-buttons/light-buttons.component';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSliderModule
   ],
   providers: [HueApiService],
   bootstrap: [AppComponent]
