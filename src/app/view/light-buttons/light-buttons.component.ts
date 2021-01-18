@@ -14,7 +14,16 @@ import { LightHelper } from '../../helper/light.helper';
 })
 export class LightButtonsComponent implements OnInit
 {
-  public lightStates:Array<LightStateInterface> = [{on:false, bri: 0},{on:false, bri: 0}];
+  public play2Light:LightStateInterface = {
+    on: false,
+    name: 'play2',
+    bri: 0
+  };
+  public play3Light:LightStateInterface = {
+    on: false,
+    name: 'play3',
+    bri: 0
+  };
   public readonly sliderConfig = {
     max: brightnessBounderies.maximum,
     min: brightnessBounderies.minimum,
@@ -30,7 +39,7 @@ export class LightButtonsComponent implements OnInit
   {
     this.service.getLightState('9').subscribe((state:any) =>
     {
-      this.lightStates[0] = {
+      this.play2Light = {
         on:      state.state.on,
         bri:     state.state.bri,
         lightId: '9'
@@ -38,7 +47,7 @@ export class LightButtonsComponent implements OnInit
     });
     this.service.getLightState('10').subscribe((state:any) =>
     {
-      this.lightStates[1] = {
+      this.play3Light = {
         on:      state.state.on,
         bri:     state.state.bri,
         lightId: '10'
@@ -54,31 +63,26 @@ export class LightButtonsComponent implements OnInit
     }
   }
 
-  public setLightForFocus(id:string):void
+  public setLightForFocus(ligth:LightStateInterface):void
   {
-    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getFocusLight()).subscribe();
+    this.service.setLightState(ligth.lightId, LightHelper.getFocusLight()).subscribe();
   }
 
-  public setLightForEnergy(id:string):void
+  public setLightForEnergy(ligth:LightStateInterface):void
   {
-    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getEnergyLight()).subscribe();
+    this.service.setLightState(ligth.lightId, LightHelper.getEnergyLight()).subscribe();
   }
 
-  public setLightForReading(id:string):void
+  public setLightForReading(ligth:LightStateInterface):void
   {
-    this.service.setLightState(LightHelper.getLightIdByName(id), LightHelper.getReadingLight()).subscribe();
+    this.service.setLightState(ligth.lightId, LightHelper.getReadingLight()).subscribe();
   }
 
   /**
    * setBrightness
    */
-  public setBrightness(id:string):void {
-    const lightId:string = LightHelper.getLightIdByName(id);
-    const lightState:LightStateInterface = this.lightStates.find((state) => {
-      return state.lightId === lightId;
-    });
-
-    this.service.setBrightness(lightId, lightState.bri).subscribe();
+  public setBrightness(light:LightStateInterface):void {
+    this.service.setBrightness(light.lightId, light.bri).subscribe();
   }
 
   private turnOnLight(id:string):void

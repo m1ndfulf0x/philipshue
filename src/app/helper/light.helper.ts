@@ -2,19 +2,6 @@ import { LightStateInterface } from '../data/light-state.interface';
 
 export class LightHelper
 {
-  public static getLightIdByName(id:string):string
-  {
-    switch(id)
-    {
-      case 'play2':
-        return '9';
-      case 'play3':
-        return '10';
-      default:
-        return '10';
-    }
-  }
-
   public static getFocusLight():LightStateInterface
   {
     return {

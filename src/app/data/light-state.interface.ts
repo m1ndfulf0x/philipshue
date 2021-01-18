@@ -4,5 +4,6 @@ export interface LightStateInterface
   sat?:number;
   bri?:number;
   hue?:number;
+  name?:string;
   lightId?:string;
 }
