@@ -71,19 +71,28 @@ export class LightButtonsComponent implements OnInit
     }
   }
 
-  public setLightForFocus(ligth:LightStateInterface):void
+  public setLightForFocus(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getFocusLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getFocusLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+    });
   }
 
-  public setLightForEnergy(ligth:LightStateInterface):void
+  public setLightForEnergy(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getEnergyLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getEnergyLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+    });
   }
 
-  public setLightForReading(ligth:LightStateInterface):void
+  public setLightForReading(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getReadingLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getReadingLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+    });
   }
 
   /**
