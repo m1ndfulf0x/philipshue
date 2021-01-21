@@ -7,6 +7,12 @@ import { LightStateInterface } from '../../data/light-state.interface';
 import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
 
+const enum Scenes {
+  focus = 'focus',
+  energy = 'energy',
+  reading = 'reading'
+};
+
 @Component({
   selector:    'app-light-buttons',
   templateUrl: './light-buttons.component.html',
@@ -41,7 +47,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.play2Light = {
         on:      state.state.on,
-        bri:     state.state.bri,
+        bri:     state.state.on ? state.state.bri : 0,
         lightId: '9'
       };
     });
@@ -49,7 +55,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.play3Light = {
         on:      state.state.on,
-        bri:     state.state.bri,
+        bri:     state.state.on ? state.state.bri : 0,
         lightId: '10'
       };
     });
@@ -71,19 +77,34 @@ export class LightButtonsComponent implements OnInit
     }
   }
 
-  public setLightForFocus(ligth:LightStateInterface):void
+  public setLightForFocus(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getFocusLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getFocusLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.focus;
+    });
   }
 
-  public setLightForEnergy(ligth:LightStateInterface):void
+  public setLightForEnergy(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getEnergyLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getEnergyLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.energy;
+    });
   }
 
-  public setLightForReading(ligth:LightStateInterface):void
+  public setLightForReading(light:LightStateInterface):void
   {
-    this.service.setLightState(ligth.lightId, LightHelper.getReadingLight()).subscribe();
+    this.service.setLightState(light.lightId, LightHelper.getReadingLight()).subscribe((state:any)=>
+    {
+      light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.reading;
+    });
   }
 
   /**
