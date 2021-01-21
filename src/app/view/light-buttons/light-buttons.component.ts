@@ -7,6 +7,12 @@ import { LightStateInterface } from '../../data/light-state.interface';
 import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
 
+const enum Scenes {
+  focus = 'focus',
+  energy = 'energy',
+  reading = 'reading'
+};
+
 @Component({
   selector:    'app-light-buttons',
   templateUrl: './light-buttons.component.html',
@@ -77,6 +83,7 @@ export class LightButtonsComponent implements OnInit
     {
       light.on = true;
       light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.focus;
     });
   }
 
@@ -86,6 +93,7 @@ export class LightButtonsComponent implements OnInit
     {
       light.on = true;
       light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.energy;
     });
   }
 
@@ -95,6 +103,7 @@ export class LightButtonsComponent implements OnInit
     {
       light.on = true;
       light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+      light.activeScene = Scenes.reading;
     });
   }
 

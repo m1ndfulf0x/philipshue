@@ -6,4 +6,5 @@ export interface LightStateInterface
   hue?:number;
   name?:string;
   lightId?:string;
+  activeScene?:string;
 }
