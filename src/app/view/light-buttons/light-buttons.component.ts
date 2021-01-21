@@ -76,6 +76,7 @@ export class LightButtonsComponent implements OnInit
     this.service.setLightState(light.lightId, LightHelper.getFocusLight()).subscribe((state:any)=>
     {
       light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
     });
   }
 
@@ -84,6 +85,7 @@ export class LightButtonsComponent implements OnInit
     this.service.setLightState(light.lightId, LightHelper.getEnergyLight()).subscribe((state:any)=>
     {
       light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
     });
   }
 
@@ -92,6 +94,7 @@ export class LightButtonsComponent implements OnInit
     this.service.setLightState(light.lightId, LightHelper.getReadingLight()).subscribe((state:any)=>
     {
       light.on = true;
+      light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
     });
   }
 
