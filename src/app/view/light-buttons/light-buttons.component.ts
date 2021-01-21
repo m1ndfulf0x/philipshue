@@ -41,7 +41,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.play2Light = {
         on:      state.state.on,
-        bri:     state.state.bri,
+        bri:     state.state.on ? state.state.bri : 0,
         lightId: '9'
       };
     });
@@ -49,7 +49,7 @@ export class LightButtonsComponent implements OnInit
     {
       this.play3Light = {
         on:      state.state.on,
-        bri:     state.state.bri,
+        bri:     state.state.on ? state.state.bri : 0,
         lightId: '10'
       };
     });
