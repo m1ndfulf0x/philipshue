@@ -48,7 +48,9 @@ export class LightButtonsComponent implements OnInit
       this.play2Light = {
         on:      state.state.on,
         bri:     state.state.on ? state.state.bri : 0,
-        lightId: '9'
+        lightId: '9',
+        sat: state.state.sat,
+        hue: state.state.hue
       };
     });
     this.service.getLightState('10').subscribe((state:any) =>
@@ -56,7 +58,9 @@ export class LightButtonsComponent implements OnInit
       this.play3Light = {
         on:      state.state.on,
         bri:     state.state.on ? state.state.bri : 0,
-        lightId: '10'
+        lightId: '10',
+        sat: state.state.sat,
+        hue: state.state.hue
       };
     });
   }
@@ -65,14 +69,14 @@ export class LightButtonsComponent implements OnInit
   {
     if(light?.on)
     {
-      this.turnOnLight(light.lightId)
+      this.turnOnLight(light)
       this.service.getLightState(light.lightId).subscribe((state:any) => {
         light.bri = state.state.bri;
       });
     }
     else
     {
-      this.turnOffLight(light.lightId);
+      this.turnOffLight(light);
       light.bri = 0;
     }
   }
@@ -116,17 +120,19 @@ export class LightButtonsComponent implements OnInit
     });
   }
 
-  private turnOnLight(id:string):void
+  private turnOnLight(light:LightStateInterface):void
   {
-    this.service.turnOnLight(id).subscribe((value) =>
+    this.service.turnOnLight(light.lightId).subscribe((value) =>
     {
       console.log(value);
     },
     (error) =>{console.log(error)});
   }
 
-  private turnOffLight(id:string):void
+  private turnOffLight(light:LightStateInterface):void
   {
-    this.service.turnOffLight(id).subscribe();
+    this.service.turnOffLight(light.lightId).subscribe(() => {
+      light.activeScene = '';
+    });
   }
 }
