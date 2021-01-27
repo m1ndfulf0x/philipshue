@@ -1,17 +1,12 @@
+import { LightStateInterface } from './../../data/light-state.interface';
 import { brightnessBounderies } from './../../data/brightness';
 import {
   Component,
   OnInit
 } from '@angular/core';
-import { LightStateInterface } from '../../data/light-state.interface';
 import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
-
-const enum Scenes {
-  focus = 'focus',
-  energy = 'energy',
-  reading = 'reading'
-};
+import { Scenes } from '../../data/scenes.enum';
 
 @Component({
   selector:    'app-light-buttons',
@@ -50,7 +45,8 @@ export class LightButtonsComponent implements OnInit
         bri:     state.state.on ? state.state.bri : 0,
         lightId: '9',
         sat: state.state.sat,
-        hue: state.state.hue
+        hue: state.state.hue,
+        activeScene: LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat)
       };
     });
     this.service.getLightState('10').subscribe((state:any) =>
@@ -60,7 +56,8 @@ export class LightButtonsComponent implements OnInit
         bri:     state.state.on ? state.state.bri : 0,
         lightId: '10',
         sat: state.state.sat,
-        hue: state.state.hue
+        hue: state.state.hue,
+        activeScene: LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat)
       };
     });
   }
