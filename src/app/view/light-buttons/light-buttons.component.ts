@@ -32,6 +32,8 @@ export class LightButtonsComponent implements OnInit
     label: 'Brightness'
   };
 
+  public temperature:number;
+
   constructor(private service:HueApiService)
   {
   }
@@ -59,6 +61,10 @@ export class LightButtonsComponent implements OnInit
         hue: state.state.hue,
         activeScene: LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat)
       };
+    });
+
+    this.service.getTemperature('43').subscribe((res) => {
+      this.temperature = res.state.temperature;
     });
   }
 
