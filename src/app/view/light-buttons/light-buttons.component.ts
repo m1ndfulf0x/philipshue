@@ -1,3 +1,4 @@
+import { LightStateService } from './../../service/light-state.service';
 import { LightStateInterface } from './../../data/light-state.interface';
 import { brightnessBounderies } from './../../data/brightness';
 import {
@@ -15,16 +16,8 @@ import { Scenes } from '../../data/scenes.enum';
 })
 export class LightButtonsComponent implements OnInit
 {
-  public play2Light:LightStateInterface = {
-    on: false,
-    name: 'play2',
-    bri: 0
-  };
-  public play3Light:LightStateInterface = {
-    on: false,
-    name: 'play3',
-    bri: 0
-  };
+  public play2Light:LightStateInterface;
+  public play3Light:LightStateInterface;
   public readonly sliderConfig = {
     max: brightnessBounderies.maximum,
     min: brightnessBounderies.minimum,
@@ -32,8 +25,11 @@ export class LightButtonsComponent implements OnInit
     label: 'Brightness'
   };
 
-  constructor(private service:HueApiService)
+  constructor(private service:HueApiService,
+              public stateService:LightStateService)
   {
+    this.play2Light = this.stateService.play2Light;
+    this.play3Light = this.stateService.play3Light;
   }
 
   public ngOnInit():void

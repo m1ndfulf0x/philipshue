@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -23,5 +24,10 @@ describe('LightButtonsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should initialize its lights via `stateService`', () => {
+    expect(component.play2Light).toEqual(component.stateService.play2Light);
+    expect(component.play3Light).toEqual(component.stateService.play3Light);
   });
 });
