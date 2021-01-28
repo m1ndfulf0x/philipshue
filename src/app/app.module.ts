@@ -1,3 +1,4 @@
+import { TemperaturePipe } from './pipes/temperature.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     ButtonContainerComponent,
-    LightButtonsComponent
+    LightButtonsComponent,
+    TemperaturePipe
   ],
   imports: [
     BrowserModule,
