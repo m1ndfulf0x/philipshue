@@ -1,3 +1,4 @@
+import { LightStateService } from './../../service/light-state.service';
 import { LightStateInterface } from './../../data/light-state.interface';
 import { brightnessBounderies } from './../../data/brightness';
 import {
@@ -15,16 +16,6 @@ import { Scenes } from '../../data/scenes.enum';
 })
 export class LightButtonsComponent implements OnInit
 {
-  public play2Light:LightStateInterface = {
-    on: false,
-    name: 'play2',
-    bri: 0
-  };
-  public play3Light:LightStateInterface = {
-    on: false,
-    name: 'play3',
-    bri: 0
-  };
   public readonly sliderConfig = {
     max: brightnessBounderies.maximum,
     min: brightnessBounderies.minimum,
@@ -33,8 +24,8 @@ export class LightButtonsComponent implements OnInit
   };
 
   public temperature:number;
-
-  constructor(private service:HueApiService)
+  constructor(private service:HueApiService,
+              public stateService:LightStateService)
   {
   }
 
@@ -42,7 +33,7 @@ export class LightButtonsComponent implements OnInit
   {
     this.service.getLightState('9').subscribe((state:any) =>
     {
-      this.play2Light = {
+      this.stateService.play2Light = {
         on:      state.state.on,
         bri:     state.state.on ? state.state.bri : 0,
         lightId: '9',
@@ -53,7 +44,7 @@ export class LightButtonsComponent implements OnInit
     });
     this.service.getLightState('10').subscribe((state:any) =>
     {
-      this.play3Light = {
+      this.stateService.play3Light = {
         on:      state.state.on,
         bri:     state.state.on ? state.state.bri : 0,
         lightId: '10',
