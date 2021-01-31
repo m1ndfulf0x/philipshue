@@ -39,7 +39,7 @@ export class LightButtonsComponent implements OnInit
         lightId: '9',
         sat: state.state.sat,
         hue: state.state.hue,
-        activeScene: LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat)
+        activeScene: state.state.on ? LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat) : ''
       };
     });
     this.service.getLightState('10').subscribe((state:any) =>
@@ -50,7 +50,7 @@ export class LightButtonsComponent implements OnInit
         lightId: '10',
         sat: state.state.sat,
         hue: state.state.hue,
-        activeScene: LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat)
+        activeScene: state.state.on ? LightHelper.getActiveScene(state.state.hue, state.state.bri, state.state.sat) : ''
       };
     });
 
