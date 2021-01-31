@@ -49,4 +49,8 @@ export class HueApiService
     }
     return this.setLightState(lightId, lightState);
   }
+
+  public getTemperature(sensorId:string):Observable<any> {
+    return this.http.get<any>(this.url + '/sensors/' + sensorId);
+  }
 }

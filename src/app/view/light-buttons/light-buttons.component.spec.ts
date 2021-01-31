@@ -1,4 +1,4 @@
-import { state } from '@angular/animations';
+import { TemperaturePipe } from './../../pipes/temperature.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,7 +10,8 @@ describe('LightButtonsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ LightButtonsComponent ],
+      declarations: [ LightButtonsComponent,
+                      TemperaturePipe],
       imports: [HttpClientModule]
     })
     .compileComponents();
