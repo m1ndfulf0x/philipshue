@@ -19,8 +19,7 @@ export class LightButtonsComponent implements OnInit
   public readonly sliderConfig = {
     max: brightnessBounderies.maximum,
     min: brightnessBounderies.minimum,
-    step: 1,
-    label: 'Brightness'
+    step: 1
   };
 
   public temperature:number;

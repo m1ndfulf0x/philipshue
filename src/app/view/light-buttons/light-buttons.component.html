@@ -7,7 +7,7 @@
     [max]="sliderConfig.max"
     [min]="sliderConfig.min"
     [step]="sliderConfig.step"
-    [thumbLabel]="sliderConfig.label"
+    [thumbLabel]="true"
     [(ngModel)]="stateService.play2Light.bri"
     (change)="setBrightness(stateService.play2Light)">
   </mat-slider>
