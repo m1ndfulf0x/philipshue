@@ -20,24 +20,24 @@
     [max]="sliderConfig.max"
     [min]="sliderConfig.min"
     [step]="sliderConfig.step"
-    [thumbLabel]="sliderConfig.label"
+    [thumbLabel]="true"
     [(ngModel)]="stateService.play3Light.bri"
     (change)="setBrightness(stateService.play3Light)">
   </mat-slider>
 </div>
 <div class="example-label">Focus</div>
 <div class="example-button-row">
-  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : ''" (click)="setLightForFocus(stateService.play2Light)">Play 2</button>
-  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : ''" (click)="setLightForFocus(stateService.play3Light)">Play 3</button>
+  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null" (click)="setLightForFocus(stateService.play2Light)">Play 2</button>
+  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null" (click)="setLightForFocus(stateService.play3Light)">Play 3</button>
 </div>
 <div class="example-label">Energy</div>
 <div class="example-button-row">
-  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : ''" (click)="setLightForEnergy(stateService.play2Light)">Play 2</button>
-  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : ''" (click)="setLightForEnergy(stateService.play3Light)">Play 3</button>
+  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null" (click)="setLightForEnergy(stateService.play2Light)">Play 2</button>
+  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null" (click)="setLightForEnergy(stateService.play3Light)">Play 3</button>
 </div>
 <div class="example-label">Reading</div>
 <div class="example-button-row">
-  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : ''" (click)="setLightForReading(stateService.play2Light)">Play 2</button>
-  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : ''" (click)="setLightForReading(stateService.play3Light)">Play 3</button>
+  <button mat-raised-button [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null" (click)="setLightForReading(stateService.play2Light)">Play 2</button>
+  <button mat-raised-button [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null" (click)="setLightForReading(stateService.play3Light)">Play 3</button>
 </div>
 <h1>{{ temperature | temperaturePipe }}</h1>

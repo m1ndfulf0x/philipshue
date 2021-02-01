@@ -1,4 +1,4 @@
-import { TemperaturePipe } from './../../pipes/temperature.pipe';
+import { TemperaturePipe } from '../../pipes/temperature.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 

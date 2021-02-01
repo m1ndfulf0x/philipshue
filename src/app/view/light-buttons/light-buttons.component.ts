@@ -1,6 +1,6 @@
-import { LightStateService } from './../../service/light-state.service';
-import { LightStateInterface } from './../../data/light-state.interface';
-import { brightnessBounderies } from './../../data/brightness';
+import { LightStateService } from '../../service/light-state.service';
+import { LightStateInterface } from '../../data/light-state.interface';
+import { brightnessBounderies } from '../../data/brightness';
 import {
   Component,
   OnInit
