@@ -1,5 +1,5 @@
 export enum Scenes {
-  focus = 'focus',
-  energy = 'energy',
-  reading = 'reading'
-};
+    focus = 'focus',
+    energy = 'energy',
+    reading = 'reading'
+}

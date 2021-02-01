@@ -7,29 +7,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { HueApiService } from './service/hue.api-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSliderModule } from '@angular/material/slider'
+import { MatSliderModule } from '@angular/material/slider';
 import { ButtonContainerComponent } from './view/button-container/button-container.component';
 import { LightButtonsComponent } from './view/light-buttons/light-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ButtonContainerComponent,
-    LightButtonsComponent,
-    TemperaturePipe
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatSlideToggleModule,
-    MatSliderModule
-  ],
-  providers: [HueApiService],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, ButtonContainerComponent, LightButtonsComponent, TemperaturePipe],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatSlideToggleModule,
+        MatSliderModule
+    ],
+    providers: [HueApiService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
