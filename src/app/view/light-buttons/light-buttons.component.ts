@@ -1,6 +1,6 @@
 import { LightStateService } from '../../service/light-state.service';
 import { LightStateInterface } from '../../data/light-state.interface';
-import { brightnessBounderies } from '../../data/brightness';
+import { brightnessBoundaries } from '../../data/brightness';
 import { Component, OnInit } from '@angular/core';
 import { HueApiService } from '../../service/hue.api-service';
 import { LightHelper } from '../../helper/light.helper';
@@ -13,8 +13,8 @@ import { Scenes } from '../../data/scenes.enum';
 })
 export class LightButtonsComponent implements OnInit {
     public readonly sliderConfig = {
-        max: brightnessBounderies.maximum,
-        min: brightnessBounderies.minimum,
+        max: brightnessBoundaries.maximum,
+        min: brightnessBoundaries.minimum,
         step: 1
     };
 
