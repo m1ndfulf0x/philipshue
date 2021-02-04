@@ -47,9 +47,7 @@ export class LightButtonsComponent implements OnInit {
             };
         });
 
-        this.service.getTemperature('43').subscribe((res) => {
-            this.temperature = res.state.temperature;
-        });
+        this.getTemperature();
     }
 
     public turnLight(light: LightStateInterface): void {
@@ -94,6 +92,12 @@ export class LightButtonsComponent implements OnInit {
     public setBrightness(light: LightStateInterface): void {
         this.service.setBrightness(light.lightId, light.bri).subscribe(() => {
             light.on = true;
+        });
+    }
+
+    public getTemperature(): void {
+        this.service.getTemperature('43').subscribe((res) => {
+            this.temperature = res.state.temperature;
         });
     }
 
