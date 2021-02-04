@@ -1,6 +1,9 @@
 <div class="example-label">On / Off</div>
 <div class="example-button-row">
-    <mat-slide-toggle [(ngModel)]="stateService.play2Light.on" (change)="turnLight(stateService.play2Light)">
+    <mat-slide-toggle
+        [(ngModel)]="stateService.play2Light.on"
+        (change)="stateService.turnLight(stateService.play2Light)"
+    >
         Play 2
     </mat-slide-toggle>
     <mat-slider
@@ -9,12 +12,15 @@
         [step]="sliderConfig.step"
         [thumbLabel]="true"
         [(ngModel)]="stateService.play2Light.bri"
-        (change)="setBrightness(stateService.play2Light)"
+        (change)="stateService.setBrightness(stateService.play2Light)"
     >
     </mat-slider>
 </div>
 <div class="example-button-row">
-    <mat-slide-toggle [(ngModel)]="stateService.play3Light.on" (change)="turnLight(stateService.play3Light)">
+    <mat-slide-toggle
+        [(ngModel)]="stateService.play3Light.on"
+        (change)="stateService.turnLight(stateService.play3Light)"
+    >
         Play 3
     </mat-slide-toggle>
     <mat-slider
@@ -23,7 +29,7 @@
         [step]="sliderConfig.step"
         [thumbLabel]="true"
         [(ngModel)]="stateService.play3Light.bri"
-        (change)="setBrightness(stateService.play3Light)"
+        (change)="stateService.setBrightness(stateService.play3Light)"
     >
     </mat-slider>
 </div>
@@ -32,14 +38,14 @@
     <button
         mat-raised-button
         [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null"
-        (click)="setLightForFocus(stateService.play2Light)"
+        (click)="stateService.setLightForFocus(stateService.play2Light)"
     >
         Play 2
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null"
-        (click)="setLightForFocus(stateService.play3Light)"
+        (click)="stateService.setLightForFocus(stateService.play3Light)"
     >
         Play 3
     </button>
@@ -49,14 +55,14 @@
     <button
         mat-raised-button
         [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null"
-        (click)="setLightForEnergy(stateService.play2Light)"
+        (click)="stateService.setLightForEnergy(stateService.play2Light)"
     >
         Play 2
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null"
-        (click)="setLightForEnergy(stateService.play3Light)"
+        (click)="stateService.setLightForEnergy(stateService.play3Light)"
     >
         Play 3
     </button>
@@ -66,14 +72,14 @@
     <button
         mat-raised-button
         [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null"
-        (click)="setLightForReading(stateService.play2Light)"
+        (click)="stateService.setLightForReading(stateService.play2Light)"
     >
         Play 2
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null"
-        (click)="setLightForReading(stateService.play3Light)"
+        (click)="stateService.setLightForReading(stateService.play3Light)"
     >
         Play 3
     </button>
