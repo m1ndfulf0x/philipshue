@@ -1,3 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
+import { MockHueApiService } from './mock-hue-api-service';
+import { HueApiService } from './hue.api-service';
 import { TestBed } from '@angular/core/testing';
 
 import { LightStateService } from './light-state.service';
@@ -5,8 +8,17 @@ import { LightStateService } from './light-state.service';
 describe('LightStateService', () => {
     let service: LightStateService;
 
+
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            imports: [HttpClientModule],
+            providers: [
+                {
+                    provide: HueApiService,
+                    useCLass: MockHueApiService
+                }
+            ]
+        });
         service = TestBed.inject(LightStateService);
     });
 
