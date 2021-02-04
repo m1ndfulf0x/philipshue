@@ -1,4 +1,3 @@
-import { LightButtonsComponent } from './../view/light-buttons/light-buttons.component';
 import { LightStateInterface } from '../data/light-state.interface';
 import { Scenes } from '../data/scenes.enum';
 

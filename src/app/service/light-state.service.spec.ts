@@ -8,7 +8,6 @@ import { LightStateService } from './light-state.service';
 describe('LightStateService', () => {
     let service: LightStateService;
 
-
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientModule],
