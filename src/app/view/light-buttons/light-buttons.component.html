@@ -84,4 +84,4 @@
         Play 3
     </button>
 </div>
-<h1 (click)="getTemperature()">{{ temperature | temperaturePipe }}</h1>
+<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
