@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { MockHueApiService } from './mock-hue-api-service';
+import { MockHueApiService } from '../test/mock-hue-api-service';
 import { HueApiService } from './hue.api-service';
 import { TestBed } from '@angular/core/testing';
 
