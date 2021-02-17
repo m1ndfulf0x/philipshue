@@ -20,12 +20,12 @@ export class LightButtonsComponent implements OnInit {
     constructor(private service: HueApiService, public stateService: LightStateService) {}
 
     public ngOnInit(): void {
-      this.textColor = '#000000';
+        this.textColor = '#000000';
         this.getTemperature();
     }
 
     public getTemperature(): void {
-      this.textColor = '#ffd740';
+        this.textColor = '#ffd740';
         this.service.getTemperature('43').subscribe((res) => {
             this.temperature = res.state.temperature;
             this.textColor = '#000000';
