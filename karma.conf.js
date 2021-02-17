@@ -16,9 +16,8 @@ module.exports = function (config) {
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
         coverageReporter: {
-            dir: require('path').join(__dirname, './coverage/philipshue'),
-            reports: ['html', 'lcovonly', 'text-summary'],
-            fixWebpackSourcePaths: true,
+            dir: './coverage/philipshue',
+            type: 'html',
             check: {
               global: {
                   statements: 60,
