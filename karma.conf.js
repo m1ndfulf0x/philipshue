@@ -9,6 +9,7 @@ module.exports = function (config) {
             require('karma-jasmine'),
             require('karma-firefox-launcher'),
             require('karma-jasmine-html-reporter'),
+            require('karma-coverage'),
             require('@angular-devkit/build-angular/plugins/karma')
         ],
         client: {
@@ -18,9 +19,7 @@ module.exports = function (config) {
             dir: require('path').join(__dirname, './coverage/philipshue'),
             reports: ['html', 'lcovonly', 'text-summary'],
             fixWebpackSourcePaths: true,
-            thresholds: {
-              emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
-              // thresholds for all files
+            check: {
               global: {
                   statements: 60,
                   lines: 50,
