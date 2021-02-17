@@ -85,7 +85,7 @@
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": ["src/styles.scss"],
                         "scripts": [],
-                        "codeCoverageExclude": ["src/app/test/**", "src/app/service/light-state.service.spec.ts"]
+                        "codeCoverageExclude": ["src/app/test/**", "src/app/service/hue.api-service.ts"]
                     }
                 },
                 "lint": {
