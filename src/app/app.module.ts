@@ -14,9 +14,10 @@ import { LightControlPanelComponent } from './view/light-control-panel/light-con
 import { LightButtonsComponent } from './view/light-buttons/light-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StaticInfoFooterComponent } from './view/static-info-footer/static-info-footer.component';
 
 @NgModule({
-    declarations: [AppComponent, LightControlPanelComponent, LightButtonsComponent, TemperaturePipe],
+    declarations: [AppComponent, LightControlPanelComponent, LightButtonsComponent, TemperaturePipe, StaticInfoFooterComponent],
     imports: [
         BrowserModule,
         FormsModule,
