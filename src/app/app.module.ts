@@ -8,13 +8,13 @@ import { HueApiService } from './service/hue.api-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
-import { ButtonContainerComponent } from './view/button-container/button-container.component';
+import { LightControlPanelComponent } from './view/light-control-panel/light-control-panel.component';
 import { LightButtonsComponent } from './view/light-buttons/light-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-    declarations: [AppComponent, ButtonContainerComponent, LightButtonsComponent, TemperaturePipe],
+    declarations: [AppComponent, LightControlPanelComponent, LightButtonsComponent, TemperaturePipe],
     imports: [
         BrowserModule,
         FormsModule,
