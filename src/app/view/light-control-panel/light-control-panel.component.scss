@@ -1,6 +1,8 @@
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.control-panel {
+    width: 600px;
+    background: #606060;
+}
+
+mat-button-toggle-group {
+    margin-left: 12px;
 }

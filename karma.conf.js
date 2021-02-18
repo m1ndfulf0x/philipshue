@@ -20,15 +20,15 @@ module.exports = function (config) {
             reports: ['html', 'lcovonly', 'text-summary'],
             fixWebpackSourcePaths: true,
             thresholds: {
-              emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
-              // thresholds for all files
-              global: {
-                  statements: 60,
-                  lines: 50,
-                  branches: 50,
-                  functions: 0
-              }
-          }
+                emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
+                // thresholds for all files
+                global: {
+                    statements: 60,
+                    lines: 50,
+                    branches: 50,
+                    functions: 0
+                }
+            }
         },
         customLaunchers: {
             FirefoxHeadless: {
