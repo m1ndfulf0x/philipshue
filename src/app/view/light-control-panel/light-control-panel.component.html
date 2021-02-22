@@ -1,14 +1,24 @@
 <div class="control-panel">
     <mat-toolbar color="primary">
         <mat-button-toggle-group multiple="true" name="lightSelect" aria-label="Select Lights">
-            <mat-button-toggle value="play2" (change)="selectLights('play2')">Play 2</mat-button-toggle>
-            <mat-button-toggle value="play3" (change)="selectLights('play3')">Play 3</mat-button-toggle>
+            <mat-button-toggle [value]="selectedLights[0]" (change)="selectLights('play2')">Play 2</mat-button-toggle>
+            <mat-button-toggle [value]="selectedLights[1]" (change)="selectLights('play3')">Play 3</mat-button-toggle>
         </mat-button-toggle-group>
     </mat-toolbar>
     <div>
-      <app-light-buttons></app-light-buttons>
+        <app-light-buttons
+            [selectedLights]="
+                selectedLights[0] && selectedLights[1]
+                    ? 'both'
+                    : selectedLights[0]
+                    ? 'play2'
+                    : selectedLights[1]
+                    ? 'play3'
+                    : 'none'
+            "
+        ></app-light-buttons>
     </div>
     <div>
-      <app-static-info-footer></app-static-info-footer>
+        <app-static-info-footer></app-static-info-footer>
     </div>
 </div>

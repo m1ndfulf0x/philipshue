@@ -1,6 +1,6 @@
 import { LightStateService } from '../../service/light-state.service';
 import { brightnessBoundaries } from '../../data/brightness';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-light-buttons',
@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./light-buttons.component.scss']
 })
 export class LightButtonsComponent implements OnInit {
+    @Input()
+    public selectedLights: 'play2' | 'play3' | 'both' | 'none';
+
     public readonly sliderConfig = {
         max: brightnessBoundaries.maximum,
         min: brightnessBoundaries.minimum,
@@ -16,6 +19,5 @@ export class LightButtonsComponent implements OnInit {
 
     constructor(public stateService: LightStateService) {}
 
-    public ngOnInit(): void {
-    }
+    public ngOnInit(): void {}
 }

@@ -17,7 +17,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StaticInfoFooterComponent } from './view/static-info-footer/static-info-footer.component';
 
 @NgModule({
-    declarations: [AppComponent, LightControlPanelComponent, LightButtonsComponent, TemperaturePipe, StaticInfoFooterComponent],
+    declarations: [
+        AppComponent,
+        LightControlPanelComponent,
+        LightButtonsComponent,
+        TemperaturePipe,
+        StaticInfoFooterComponent
+    ],
     imports: [
         BrowserModule,
         FormsModule,
