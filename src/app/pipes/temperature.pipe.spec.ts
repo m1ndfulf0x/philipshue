@@ -2,7 +2,7 @@ import { TemperaturePipe } from './temperature.pipe';
 import { TestBed } from '@angular/core/testing';
 
 describe('TemperaturePipe', () => {
-    let pipe: TemperaturePipe = new TemperaturePipe();
+    const pipe: TemperaturePipe = new TemperaturePipe();
     beforeEach(() =>
         TestBed.configureTestingModule({
             declarations: [TemperaturePipe]
