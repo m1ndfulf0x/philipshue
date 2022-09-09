@@ -14,23 +14,23 @@ export class HueApiService {
 
     constructor(private http: HttpClient) {}
 
-    public turnOffLight(lightId: string): Observable<any> {
+    public turnOffLight(lightId?: string): Observable<any> {
         return this.http.put<any>(this.url + '/lights/' + lightId + '/state', {
             on: false
         });
     }
 
-    public turnOnLight(lightId: string): Observable<any> {
+    public turnOnLight(lightId?: string): Observable<any> {
         return this.http.put<any>(this.url + '/lights/' + lightId + '/state', {
             on: true
         });
     }
 
-    public setLightState(lightId: string, state: LightStateInterface): Observable<any> {
+    public setLightState(state: LightStateInterface, lightId?: string): Observable<any> {
         return this.http.put<any>(this.url + '/lights/' + lightId + '/state', state);
     }
 
-    public getLightState(lightId: string): Observable<any> {
+    public getLightState(lightId?: string): Observable<any> {
         return this.http.get<any>(this.url + '/lights/' + lightId);
     }
 
@@ -38,12 +38,12 @@ export class HueApiService {
      * setBrightness
      *
      */
-    public setBrightness(lightId: string, brightness: number): Observable<any> {
+    public setBrightness(brightness?: number, lightId?: string): Observable<any> {
         const lightState: LightStateInterface = {
             on: true,
             bri: brightness
         };
-        return this.setLightState(lightId, lightState);
+        return this.setLightState(lightState, lightId);
     }
 
     public getTemperature(sensorId: string): Observable<any> {
