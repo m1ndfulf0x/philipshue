@@ -3,6 +3,7 @@ import { LightStateInterface } from './../data/light-state.interface';
 import { Injectable } from '@angular/core';
 import { LightHelper } from '../helper/light.helper';
 import { Scenes } from '../data/scenes.enum';
+import { irisLight, play3Light } from '../helper/light-ids';
 
 @Injectable({
     providedIn: 'root'
@@ -20,11 +21,11 @@ export class LightStateService {
     };
 
     constructor(private apiService: HueApiService) {
-        this.apiService.getLightState('9').subscribe((state: any) => {
+        this.apiService.getLightState(play3Light).subscribe((state: any) => {
             this.play2Light = {
                 on: state.state.on,
                 bri: state.state.on ? state.state.bri : 0,
-                lightId: '9',
+                lightId: play3Light,
                 sat: state.state.sat,
                 hue: state.state.hue,
                 activeScene: state.state.on
@@ -32,11 +33,11 @@ export class LightStateService {
                     : ''
             };
         });
-        this.apiService.getLightState('10').subscribe((state: any) => {
+        this.apiService.getLightState(irisLight).subscribe((state: any) => {
             this.play3Light = {
                 on: state.state.on,
                 bri: state.state.on ? state.state.bri : 0,
-                lightId: '10',
+                lightId: irisLight,
                 sat: state.state.sat,
                 hue: state.state.hue,
                 activeScene: state.state.on
