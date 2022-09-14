@@ -4,7 +4,7 @@
         [(ngModel)]="stateService.play2Light.on"
         (change)="stateService.turnLight(stateService.play2Light)"
     >
-        Play 2
+        Play 1
     </mat-slide-toggle>
     <mat-slider
         [max]="sliderConfig.max"
@@ -21,7 +21,7 @@
         [(ngModel)]="stateService.play3Light.on"
         (change)="stateService.turnLight(stateService.play3Light)"
     >
-        Play 3
+        Iris
     </mat-slide-toggle>
     <mat-slider
         [max]="sliderConfig.max"
@@ -40,14 +40,14 @@
         [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null"
         (click)="stateService.setLightForFocus(stateService.play2Light)"
     >
-        Play 2
+        Play 1
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null"
         (click)="stateService.setLightForFocus(stateService.play3Light)"
     >
-        Play 3
+    Iris
     </button>
 </div>
 <div class="example-label">Energy</div>
@@ -57,14 +57,14 @@
         [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null"
         (click)="stateService.setLightForEnergy(stateService.play2Light)"
     >
-        Play 2
+        Play 1
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null"
         (click)="stateService.setLightForEnergy(stateService.play3Light)"
     >
-        Play 3
+    Iris
     </button>
 </div>
 <div class="example-label">Reading</div>
@@ -74,14 +74,14 @@
         [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null"
         (click)="stateService.setLightForReading(stateService.play2Light)"
     >
-        Play 2
+        Play 1
     </button>
     <button
         mat-raised-button
         [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null"
         (click)="stateService.setLightForReading(stateService.play3Light)"
     >
-        Play 3
+    Iris
     </button>
 </div>
-<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
+<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">Temperatur Wohnzimmer {{ temperature | temperaturePipe }}</h1>
