@@ -84,4 +84,4 @@
     Iris
     </button>
 </div>
-<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">Temperatur Wohnzimmer {{ temperature | temperaturePipe }}</h1>
+<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
