@@ -3,7 +3,7 @@ import { LightStateInterface } from './../data/light-state.interface';
 import { Injectable } from '@angular/core';
 import { LightHelper } from '../helper/light.helper';
 import { Scenes } from '../data/scenes.enum';
-import { irisLight, play3Light } from '../helper/light-ids';
+import { irisLightId, play1LightId } from '../helper/light-ids';
 
 @Injectable({
     providedIn: 'root'
@@ -21,11 +21,11 @@ export class LightStateService {
     };
 
     constructor(private apiService: HueApiService) {
-        this.apiService.getLightState(play3Light).subscribe((state: any) => {
+        this.apiService.getLightState(play1LightId).subscribe((state: any) => {
             this.play2Light = {
                 on: state.state.on,
                 bri: state.state.on ? state.state.bri : 0,
-                lightId: play3Light,
+                lightId: play1LightId,
                 sat: state.state.sat,
                 hue: state.state.hue,
                 activeScene: state.state.on
@@ -33,11 +33,11 @@ export class LightStateService {
                     : ''
             };
         });
-        this.apiService.getLightState(irisLight).subscribe((state: any) => {
+        this.apiService.getLightState(irisLightId).subscribe((state: any) => {
             this.play3Light = {
                 on: state.state.on,
                 bri: state.state.on ? state.state.bri : 0,
-                lightId: irisLight,
+                lightId: irisLightId,
                 sat: state.state.sat,
                 hue: state.state.hue,
                 activeScene: state.state.on
@@ -62,7 +62,7 @@ export class LightStateService {
     public setLightForFocus(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getFocusLight(), light.lightId).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.focus;
         });
     }
@@ -70,7 +70,7 @@ export class LightStateService {
     public setLightForEnergy(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getEnergyLight(), light.lightId ).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.energy;
         });
     }
@@ -78,7 +78,7 @@ export class LightStateService {
     public setLightForReading(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getReadingLight(), light.lightId).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.reading;
         });
     }
