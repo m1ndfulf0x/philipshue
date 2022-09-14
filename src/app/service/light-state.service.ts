@@ -62,7 +62,7 @@ export class LightStateService {
     public setLightForFocus(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getFocusLight(), light.lightId).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.focus;
         });
     }
@@ -70,7 +70,7 @@ export class LightStateService {
     public setLightForEnergy(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getEnergyLight(), light.lightId ).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.energy;
         });
     }
@@ -78,7 +78,7 @@ export class LightStateService {
     public setLightForReading(light: LightStateInterface): void {
         this.apiService.setLightState(LightHelper.getReadingLight(), light.lightId).subscribe((state: any) => {
             light.on = true;
-            light.bri = state[3].success['/lights/' + light.lightId + '/state/bri'];
+            light.bri = state[3].success[`/lights/${light.lightId}/state/bri`];
             light.activeScene = Scenes.reading;
         });
     }
