@@ -1,87 +1,90 @@
-<div class="view-label">On / Off</div>
-<div class="view-button-row">
-    <mat-slide-toggle
-        [(ngModel)]="stateService.play2Light.on"
-        (change)="stateService.turnLight(stateService.play2Light)"
-    >
-        Play 1
-    </mat-slide-toggle>
-    <mat-slider
-        [max]="sliderConfig.max"
-        [min]="sliderConfig.min"
-        [step]="sliderConfig.step"
-        [thumbLabel]="true"
-        [(ngModel)]="stateService.play2Light.bri"
-        (change)="stateService.setBrightness(stateService.play2Light)"
-    >
-    </mat-slider>
-</div>
-<div class="view-button-row">
-    <mat-slide-toggle
-        [(ngModel)]="stateService.play3Light.on"
-        (change)="stateService.turnLight(stateService.play3Light)"
-    >
-        Iris
-    </mat-slide-toggle>
-    <mat-slider
-        [max]="sliderConfig.max"
-        [min]="sliderConfig.min"
-        [step]="sliderConfig.step"
-        [thumbLabel]="true"
-        [(ngModel)]="stateService.play3Light.bri"
-        (change)="stateService.setBrightness(stateService.play3Light)"
-    >
-    </mat-slider>
-</div>
-<div class="view-label"><mat-icon svgIcon="focus"></mat-icon>Focus</div>
-<div class="view-button-row">
-    <button
-        mat-fab
-        [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null"
-        (click)="stateService.setLightForFocus(stateService.play2Light)"
-    >
-    <mat-icon svgIcon="play"></mat-icon>
-    </button>
-    <button
-        mat-fab
-        [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null"
-        (click)="stateService.setLightForFocus(stateService.play3Light)"
-    >
-    <mat-icon svgIcon="iris"></mat-icon>
-    </button>
-</div>
-<div class="view-label"><mat-icon svgIcon="energize"></mat-icon>Energy</div>
-<div class="view-button-row">
-    <button
-        mat-fab
-        [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null"
-        (click)="stateService.setLightForEnergy(stateService.play2Light)"
-    >
+<div class="button-panel" [style]="backgroundColor">
+    <div class="view-label">On / Off</div>
+    <div class="view-button-row">
+        <mat-slide-toggle
+            [(ngModel)]="stateService.play2Light.on"
+            (change)="stateService.turnLight(stateService.play2Light)"
+        >
+            Play 1
+        </mat-slide-toggle>
+        <mat-slider
+            [max]="sliderConfig.max"
+            [min]="sliderConfig.min"
+            [step]="sliderConfig.step"
+            [thumbLabel]="true"
+            [(ngModel)]="stateService.play2Light.bri"
+            (change)="stateService.setBrightness(stateService.play2Light)"
+        >
+        </mat-slider>
+    </div>
+    <div class="view-button-row">
+        <mat-slide-toggle
+            [(ngModel)]="stateService.play3Light.on"
+            (change)="stateService.turnLight(stateService.play3Light)"
+        >
+            Iris
+        </mat-slide-toggle>
+        <mat-slider
+            [max]="sliderConfig.max"
+            [min]="sliderConfig.min"
+            [step]="sliderConfig.step"
+            [thumbLabel]="true"
+            [(ngModel)]="stateService.play3Light.bri"
+            (change)="stateService.setBrightness(stateService.play3Light)"
+        >
+        </mat-slider>
+    </div>
+    <div class="view-label"><mat-icon svgIcon="focus"></mat-icon>Focus</div>
+    <div class="view-button-row">
+        <button
+            mat-fab
+            [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null"
+            (click)="stateService.setLightForFocus(stateService.play2Light)"
+        >
         <mat-icon svgIcon="play"></mat-icon>
-    </button>
-    <button
-        mat-fab
-        [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null"
-        (click)="stateService.setLightForEnergy(stateService.play3Light)"
-    >
+        </button>
+        <button
+            mat-fab
+            [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null"
+            (click)="stateService.setLightForFocus(stateService.play3Light)"
+        >
         <mat-icon svgIcon="iris"></mat-icon>
-    </button>
-</div>
-<div class="view-label"><mat-icon svgIcon="reading"></mat-icon>Reading</div>
-<div class="view-button-row">
-    <button
-        mat-fab
-        [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null"
-        (click)="stateService.setLightForReading(stateService.play2Light)"
-    >
-        <mat-icon svgIcon="play"></mat-icon>
-    </button>
-    <button
-        mat-fab
-        [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null"
-        (click)="stateService.setLightForReading(stateService.play3Light)"
-    >
-      <mat-icon svgIcon="iris"></mat-icon>
-    </button>
-</div>
-<h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
+        </button>
+    </div>
+    <div class="view-label"><mat-icon svgIcon="energize"></mat-icon>Energy</div>
+    <div class="view-button-row">
+        <button
+            mat-fab
+            [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null"
+            (click)="stateService.setLightForEnergy(stateService.play2Light)"
+        >
+            <mat-icon svgIcon="play"></mat-icon>
+        </button>
+        <button
+            mat-fab
+            [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null"
+            (click)="stateService.setLightForEnergy(stateService.play3Light)"
+        >
+            <mat-icon svgIcon="iris"></mat-icon>
+        </button>
+    </div>
+    <div class="view-label"><mat-icon svgIcon="reading"></mat-icon>Reading</div>
+    <div class="view-button-row">
+        <button
+            mat-fab
+            [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null"
+            (click)="stateService.setLightForReading(stateService.play2Light)"
+        >
+            <mat-icon svgIcon="play"></mat-icon>
+        </button>
+        <button
+            mat-fab
+            [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null"
+            (click)="stateService.setLightForReading(stateService.play3Light)"
+        >
+          <mat-icon svgIcon="iris"></mat-icon>
+        </button>
+    </div>
+    <h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
+  </div>
+  

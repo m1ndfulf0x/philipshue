@@ -15,16 +15,25 @@ export class LightButtonsComponent implements OnInit {
         step: 1
     };
 
+    protected backgroundColor: string = `background: #000000`;
+
     public temperature: number = 0;
     public textColor: string = '';
     constructor(private service: HueApiService, public stateService: LightStateService) {}
 
     public ngOnInit(): void {
         this.textColor = '#000000';
+        this.adjustBackgroundColorByDate();
         this.getTemperature();
     }
 
-    public getTemperature(): void {
+    private adjustBackgroundColorByDate(): void {
+      const date: Date = new Date();
+      const addToColor = date.getHours();
+      this.backgroundColor = `background: #${99 - addToColor}${99 - addToColor}${99 - addToColor}`;
+    }
+
+    protected getTemperature(): void {
         this.textColor = '#ffd740';
         this.service.getTemperature('43').subscribe((res) => {
             this.temperature = res.state.temperature;
