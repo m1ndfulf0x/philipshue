@@ -8,8 +8,19 @@ import { DomSanitizer } from "@angular/platform-browser";
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+    protected backgroundColor: string = `background: #000000`;
+
     constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
         this.registerSvgIcons();
+        this.adjustBackgroundcolorByDate();
+    }
+
+    private adjustBackgroundcolorByDate(): void {
+        const date: Date = new Date();
+        const addToColor = date.getHours();
+        this.backgroundColor = `background: #${99 - addToColor}${99 - addToColor}${99 - addToColor}`;
+
     }
 
     private registerSvgIcons(): void {
