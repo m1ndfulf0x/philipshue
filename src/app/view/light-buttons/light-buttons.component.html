@@ -36,48 +36,48 @@
 <div class="example-label">Focus</div>
 <div class="example-button-row">
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play2Light.activeScene === 'focus' ? 'accent' : null"
         (click)="stateService.setLightForFocus(stateService.play2Light)"
     >
-        Play 1
+    <mat-icon svgIcon="play"></mat-icon>
     </button>
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play3Light.activeScene === 'focus' ? 'accent' : null"
         (click)="stateService.setLightForFocus(stateService.play3Light)"
     >
-    Iris
+    <mat-icon svgIcon="iris"></mat-icon>
     </button>
 </div>
 <div class="example-label">Energy</div>
 <div class="example-button-row">
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play2Light.activeScene === 'energy' ? 'accent' : null"
         (click)="stateService.setLightForEnergy(stateService.play2Light)"
     >
-        Play 1
+        <mat-icon svgIcon="play"></mat-icon>
     </button>
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play3Light.activeScene === 'energy' ? 'accent' : null"
         (click)="stateService.setLightForEnergy(stateService.play3Light)"
     >
-    Iris
+        <mat-icon svgIcon="iris"></mat-icon>
     </button>
 </div>
 <div class="example-label">Reading</div>
 <div class="example-button-row">
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play2Light.activeScene === 'reading' ? 'accent' : null"
         (click)="stateService.setLightForReading(stateService.play2Light)"
     >
-        Play 1
+        <mat-icon svgIcon="play"></mat-icon>
     </button>
     <button
-        mat-raised-button
+        mat-icon-button
         [color]="stateService.play3Light.activeScene === 'reading' ? 'accent' : null"
         (click)="stateService.setLightForReading(stateService.play3Light)"
     >

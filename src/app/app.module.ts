@@ -12,6 +12,7 @@ import { ButtonContainerComponent } from './view/button-container/button-contain
 import { LightButtonsComponent } from './view/light-buttons/light-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
     declarations: [AppComponent, ButtonContainerComponent, LightButtonsComponent, TemperaturePipe],
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpClientModule,
         MatButtonModule,
         MatSlideToggleModule,
-        MatSliderModule
+        MatSliderModule,
+        MatIconModule
     ],
     providers: [HueApiService],
     bootstrap: [AppComponent]
