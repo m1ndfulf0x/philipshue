@@ -1,34 +1,50 @@
 .button-panel {
     margin: 4px;
     padding: 16px;
-  }
-  
-  mat-slide-toggle {
-      margin: 4px 4px 4px 4px;
-  }
-  
-  .view-label {
-      display: table-cell;
-      font-size: 24px;
-      margin-left: 8px;
-      min-width: 120px;
-  }
-  
-  .view-button-row {
-      display: flex;
-  }
-  
-  .view-button-row .mat-button-base {
-      margin: 8px 8px 8px 0;
-  }
-  
-  .view-flex-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-  }
-  
-  mat-slider {
-      width: 300px;
-  }
-  
+}
+
+mat-slide-toggle {
+    margin: 4px 4px 4px 4px;
+}
+
+.view-label {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-left: 8px;
+    min-width: 120px;
+}
+
+.view-button-row {
+    display: flex;
+    justify-content: center;
+}
+
+.view-slider-row {
+    display: grid;
+}
+
+.view-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.view-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+mat-slider {
+    width: 300px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-size {
+  font-size: 34px;
+  height: 34px;
+  width: 34px;
+}

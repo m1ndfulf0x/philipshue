@@ -1,6 +1,6 @@
 <div class="button-panel" [style]="backgroundColor">
     <div class="view-label">On / Off</div>
-    <div class="view-button-row">
+    <div class="view-slider-row">
         <mat-slide-toggle
             [(ngModel)]="stateService.play2Light.on"
             (change)="stateService.turnLight(stateService.play2Light)"
@@ -17,7 +17,7 @@
         >
         </mat-slider>
     </div>
-    <div class="view-button-row">
+    <div class="view-slider-row">
         <mat-slide-toggle
             [(ngModel)]="stateService.play3Light.on"
             (change)="stateService.turnLight(stateService.play3Light)"
@@ -85,6 +85,9 @@
           <mat-icon svgIcon="iris"></mat-icon>
         </button>
     </div>
-    <h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">{{ temperature | temperaturePipe }}</h1>
-  </div>
-  
+    <h1 (click)="getTemperature()" [ngStyle]="{ color: textColor }">
+      <mat-icon class="icon-size">device_thermostat</mat-icon>
+      {{ temperature | temperaturePipe }}
+    </h1>
+</div>
+
